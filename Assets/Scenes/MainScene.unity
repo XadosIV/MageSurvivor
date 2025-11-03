@@ -382,7 +382,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 597557842}
   m_LocalRotation: {x: 0.4394697, y: -0.14009595, z: 0.06960518, w: 0.8845308}
-  m_LocalPosition: {x: 0, y: 0, z: 1.65}
+  m_LocalPosition: {x: 0, y: 0, z: 1.0951834}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -390,9 +390,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 52.84, y: -18, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.8159001, y: 0.3}
+  m_AnchoredPosition: {x: -0.6356291, y: -0.14215952}
   m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: -1.49, y: 0.5}
+  m_Pivot: {x: -1.49, y: -1.94}
 --- !u!212 &597557844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -439,13 +439,13 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_Sprite: {fileID: 21300000, guid: d3db9abe131ba4b4e8d20e89bbbccaba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.33, y: 5.77}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -475,18 +475,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980693949}
-  m_LocalRotation: {x: -0.08047829, y: 0.8675765, z: 0.45608452, w: -0.18116641}
-  m_LocalPosition: {x: 0, y: 0, z: 1.5940591}
+  m_LocalRotation: {x: 0.19954972, y: 0.30859, z: -0.066381335, w: 0.927656}
+  m_LocalPosition: {x: 0, y: 0, z: 1.07934}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2016154906}
-  m_LocalEulerAnglesHint: {x: 229.66, y: 36.8, z: -208.1}
+  m_LocalEulerAnglesHint: {x: 24.28, y: 36.8, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.60828805, y: 0.6296604}
+  m_AnchoredPosition: {x: 0.82268095, y: 0.0006931424}
   m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.1, y: 0.5}
+  m_Pivot: {x: 1.7, y: -1.8}
 --- !u!212 &980693951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -533,7 +533,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_Sprite: {fileID: 21300000, guid: fb166ed96604ab146bea665505e52aff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -904,7 +904,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a07f6f07d814e44c9999c53935fc58e, type: 2}
+  - {fileID: 2100000, guid: 4e0dc927e51a7434ba38154b57dc0072, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
