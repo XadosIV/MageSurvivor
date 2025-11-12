@@ -4,7 +4,7 @@ public class Fireball : MonoBehaviour
 {
     public float speed = 20f;
     public float lifetime = 3f;
-    public GameObject explosionEffect;
+    public ParticleSystem explosionEffect;
 
     private Rigidbody rb;
 
