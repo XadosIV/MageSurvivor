@@ -7,6 +7,7 @@ public class FirstPersonController : MonoBehaviour
     public float jumpHeight = 1.5f;
     public float gravity = -9.81f;
     public Transform cam;
+    public GameObject fireballPrefab;
 
     CharacterController cc;
     float pitch = 0f;
@@ -42,5 +43,11 @@ public class FirstPersonController : MonoBehaviour
         Velocite += gravity * Time.deltaTime;
         Vector3 vel = new Vector3(move.x, 0f, move.z);
         cc.Move((vel + Vector3.up * Velocite) * Time.deltaTime);
+
+            
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Instantiate(fireballPrefab, cam.position + cam.forward * 0.5f, cam.rotation);
+            }
     }
 }

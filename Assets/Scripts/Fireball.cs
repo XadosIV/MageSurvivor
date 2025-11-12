@@ -4,7 +4,7 @@ public class Fireball : MonoBehaviour
 {
     public float speed = 20f;
     public float lifetime = 3f;
-    public ParticleSystem explosionEffect;
+    public GameObject explosionEffect;
 
     private Rigidbody rb;
 
@@ -17,7 +17,8 @@ public class Fireball : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Fireball")) return;
+        print("Fireball hit: " + other.name);
+        if (other.CompareTag("Player")) return;
 
         if (explosionEffect)
         {
