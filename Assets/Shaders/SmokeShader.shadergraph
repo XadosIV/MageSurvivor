@@ -202,6 +202,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "10a59ec386f94fceaf86518ad0bd1a28"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "9d844bbe1b4d4bc4bfde86ff14b36d12"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "1a84809aef1c4a169dca8eb00f93dde7"
                 },
                 "m_SlotId": 1
@@ -272,6 +286,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "45ea3aba03fa421ca2d9c39473eb6845"
+                },
+                "m_SlotId": 1
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "c299cc84fd994e6ea1283edab2d70eca"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "46aa7ddb0a2d4bacb63cee42ca5ad6f4"
                 },
                 "m_SlotId": 3
@@ -309,20 +337,6 @@
                     "m_Id": "8de6e9ef59d2444bac3f611cd37a405c"
                 },
                 "m_SlotId": 2
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "5eb5d74ada7449bd9c879f88f504c24c"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "0baa62b5ac0c4e8c917d6c6c645c2035"
-                },
-                "m_SlotId": 0
             }
         },
         {
@@ -482,20 +496,6 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
-                    "m_Id": "c0211ecd3a4b4f6fa944fd03d2204025"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "c299cc84fd994e6ea1283edab2d70eca"
-                },
-                "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
                     "m_Id": "c299cc84fd994e6ea1283edab2d70eca"
                 },
                 "m_SlotId": 2
@@ -573,6 +573,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "51abc10557004c34bed4d22fb05c0786"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "fbfdf420ea6846fc8530285d5cb6cd10"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "0baa62b5ac0c4e8c917d6c6c645c2035"
                 },
                 "m_SlotId": 0
             }
@@ -674,7 +688,7 @@
         "a": 1.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -1796,7 +1810,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_OutputChannel": 0
+    "m_OutputChannel": 1
 }
 
 {
@@ -2103,22 +2117,22 @@
     "m_Name": "",
     "m_ChildObjectList": [
         {
-            "m_Id": "2b187a548ab147178da3c4275298de41"
+            "m_Id": "bc348410f1d744b888073e1c317fb652"
         },
         {
-            "m_Id": "a4ca34718f3342dea6f3a8f0a767d6d7"
+            "m_Id": "0123cd1b2fd24019a08b3536b89cab1f"
+        },
+        {
+            "m_Id": "2b187a548ab147178da3c4275298de41"
         },
         {
             "m_Id": "425d00327e9e4fae9b35fb57aa80d11e"
         },
         {
-            "m_Id": "bc348410f1d744b888073e1c317fb652"
+            "m_Id": "a4ca34718f3342dea6f3a8f0a767d6d7"
         },
         {
             "m_Id": "2edd7f39217545e0822618448c8bbf70"
-        },
-        {
-            "m_Id": "0123cd1b2fd24019a08b3536b89cab1f"
         }
     ]
 }
@@ -2191,7 +2205,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Occlusion",
     "m_StageCapability": 2,
-    "m_Value": 1.0,
+    "m_Value": 0.0,
     "m_DefaultValue": 1.0,
     "m_Labels": []
 }
@@ -2331,7 +2345,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_OutputChannel": 0
+    "m_OutputChannel": 1
 }
 
 {
