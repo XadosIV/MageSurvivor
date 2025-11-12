@@ -1219,10 +1219,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -974.181640625,
-            "y": 1234.986083984375,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1102.9998779296875,
+            "y": 1082.0,
+            "width": 125.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
