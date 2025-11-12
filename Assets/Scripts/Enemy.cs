@@ -1,29 +1,38 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    [SerializeField] PlayerHealth playerHealth;
-
     public float sightRange = 100f;
     public float attackRange = 1.8f;
     public int damage = 10;
     public float attackCooldown = 1f;
 
     NavMeshAgent agent;
+    Transform player;
+    PlayerHealth playerHealth;
     float nextHit;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (player && !playerHealth) player.TryGetComponent(out playerHealth);
+    }
+
+    public void Init(Transform target)
+    {
+        player = target;
+        playerHealth = null;
+        if (player) player.TryGetComponent(out playerHealth);
     }
 
     void Update()
     {
         if (!player) return;
-        agent.SetDestination(player.position);
+
+        if (!IsPlayerInSight()) return;
+
+        if (agent && agent.enabled)
+            agent.SetDestination(player.position);
 
         float d = Vector3.Distance(transform.position, player.position);
         if (d <= attackRange && Time.time >= nextHit)
@@ -31,5 +40,12 @@ public class EnemyAI : MonoBehaviour
             nextHit = Time.time + attackCooldown;
             if (playerHealth) playerHealth.TakeDamage(damage);
         }
+    }
+
+    bool IsPlayerInSight()
+    {
+        if (!player) return false;
+        float sqr = (player.position - transform.position).sqrMagnitude;
+        return sqr <= sightRange * sightRange;
     }
 }

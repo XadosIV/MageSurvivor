@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177418378517122104}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.004268781, y: -0.012926549, z: 0.31354916, w: 0.9494744}
+  m_LocalRotation: {x: -0.23485617, y: -0.7111802, z: 0.20778318, w: 0.629199}
   m_LocalPosition: {x: 0, y: 1.1340001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 63378929386570612}
-  m_LocalEulerAnglesHint: {x: 0, y: -79.43, z: 36.55}
+  m_LocalEulerAnglesHint: {x: 0, y: -97, z: 36.55}
 --- !u!33 &9069179629923083037
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -138,13 +138,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398569089497100453}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.05479613, y: 0.8502167, z: 0.51572114, w: 0.09033677}
-  m_LocalPosition: {x: 0.13511387, y: 0.5, z: -0.628644}
+  m_LocalRotation: {x: -0.340489, y: 0.6197316, z: 0.340489, w: 0.6197316}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 0.16000003, y: 0.7999999, z: 0.16}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 63378929386570612}
-  m_LocalEulerAnglesHint: {x: -62.48, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -57.57, y: 90, z: 0}
 --- !u!33 &2771274153597764251
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -251,13 +251,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6964232843953285343}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05479613, y: 0.8502167, z: -0.51572114, w: 0.09033677}
-  m_LocalPosition: {x: -0.13511387, y: 0.5, z: 0.628644}
+  m_LocalRotation: {x: 0.340489, y: 0.6197316, z: -0.340489, w: 0.6197316}
+  m_LocalPosition: {x: -0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 0.16000003, y: 0.7999999, z: 0.16}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 63378929386570612}
-  m_LocalEulerAnglesHint: {x: 62.48, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.57, y: 90, z: 0}
 --- !u!33 &755279399005043804
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -467,8 +467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038c968c3035adf48a5a592649eecc81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  player: {fileID: 0}
-  playerHealth: {fileID: 0}
   sightRange: 100
   attackRange: 1.8
   damage: 10

@@ -1,31 +1,31 @@
 using System.Collections;
 using UnityEngine;
 
-public class RandomSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
-    [Header("Prefabs à spawner")]
     public GameObject[] mobPrefabs;
 
-    [Header("Règles de spawn")]
+    public Transform player;       
+    public bool autoFindPlayer = true;
+    public string playerTag = "Player";
+
     public bool autoStart = true;
     public float spawnInterval = 2f;
     public int maxAlive = 20;
 
-    [Header("Zone de spawn (locale au spawner)")]
-    public Vector2 areaSize = new Vector2(20f, 20f); 
-    public bool snapToGround = true;
+    public Vector2 areaSize = new Vector2(20f, 20f);
     public float raycastHeight = 10f;
-    public LayerMask groundMask = ~0; 
+    public LayerMask groundMask = ~0;
 
     Transform spawnRoot;
     Coroutine loop;
 
     void Awake()
     {
-        if (mobPrefabs == null || mobPrefabs.Length == 0)
-            Debug.LogWarning("RandomSpawner: Aucun prefab configuré.");
         spawnRoot = new GameObject("Spawned").transform;
         spawnRoot.SetParent(transform, false);
+
+        ResolvePlayerTarget();
     }
 
     void OnEnable()
@@ -45,6 +45,13 @@ public class RandomSpawner : MonoBehaviour
             if (loop == null) StartSpawning();
             else StopSpawning();
         }
+    }
+
+    void ResolvePlayerTarget()
+    {
+        if (player || !autoFindPlayer) return;
+        GameObject go = GameObject.FindWithTag(playerTag);
+        if (go) player = go.transform;
     }
 
     public void StartSpawning()
@@ -78,15 +85,18 @@ public class RandomSpawner : MonoBehaviour
 
         Vector3 pos = GetRandomPositionInArea();
 
-        if (snapToGround)
-        {
-            Vector3 rayOrigin = new Vector3(pos.x, transform.position.y + raycastHeight, pos.z);
-            if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundMask))
-                pos = hit.point;
-        }
 
         GameObject prefab = mobPrefabs[Random.Range(0, mobPrefabs.Length)];
-        return Instantiate(prefab, pos, Quaternion.identity, spawnRoot);
+        GameObject spawned = Instantiate(prefab, pos, Quaternion.identity, spawnRoot);
+
+        var enemy = spawned.GetComponent<Enemy>();
+        if (enemy)
+        {
+            if (!player) ResolvePlayerTarget(); 
+            enemy.Init(player);
+        }
+
+        return spawned;
     }
 
     Vector3 GetRandomPositionInArea()
@@ -96,11 +106,12 @@ public class RandomSpawner : MonoBehaviour
         return transform.TransformPoint(new Vector3(x, 0f, z));
     }
 
+
+    //zone
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0f, 1f, 0f, 0.15f);
-        Matrix4x4 m = transform.localToWorldMatrix;
-        Gizmos.matrix = m;
+        Gizmos.matrix = transform.localToWorldMatrix;
         Vector3 size = new Vector3(areaSize.x, 0.01f, areaSize.y);
         Gizmos.DrawCube(Vector3.zero, size);
         Gizmos.color = Color.green;
