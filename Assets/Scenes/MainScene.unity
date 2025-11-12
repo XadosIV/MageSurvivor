@@ -403,14 +403,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   mobPrefabs:
   - {fileID: 8184104823998655540, guid: d69839e1a246ef04c834deddb98cede9, type: 3}
+  - {fileID: 1226578529147893304, guid: 1b82a9e8b501b0c4185df5d984eb4035, type: 3}
+  - {fileID: 4065529018114446415, guid: 3a968c3a0ac39384f82bcd171d7a7f91, type: 3}
   player: {fileID: 1222041491}
   autoFindPlayer: 1
   playerTag: Player
   autoStart: 1
   spawnInterval: 2
   maxAlive: 20
-  areaSize: {x: 20, y: 20}
-  snapToGround: 1
+  areaSize: {x: 40, y: 40}
   raycastHeight: 10
   groundMask:
     serializedVersion: 2
@@ -690,7 +691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8676755992988306893, guid: 78a1729c22d4f814381bbb6c9e06b9be, type: 3}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8676755992988306893, guid: 78a1729c22d4f814381bbb6c9e06b9be, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -873,6 +874,7 @@ MonoBehaviour:
   jumpHeight: 1.5
   gravity: -10
   cam: {fileID: 1556149735}
+  fireballPrefab: {fileID: 7752900382655144684, guid: 78a1729c22d4f814381bbb6c9e06b9be, type: 3}
 --- !u!114 &1222041493
 MonoBehaviour:
   m_ObjectHideFlags: 0
