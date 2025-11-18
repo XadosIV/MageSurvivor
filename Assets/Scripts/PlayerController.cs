@@ -10,25 +10,28 @@ public class FirstPersonController : MonoBehaviour
     public GameObject fireballPrefab;
 
     CharacterController cc;
+    Health health;
     float pitch = 0f;
     float Velocite = 0f;
 
     void Awake()
     {
         cc = GetComponent<CharacterController>();
-        if (cam == null) cam = Camera.main.transform;
+        health = GetComponent<Health>();
+        if (cam == null && Camera.main) cam = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
     {
+        if (health && health.currentHealth <= 0) return;
+
         float mx = Input.GetAxis("Mouse X") * mouseSensitivity;
         float my = Input.GetAxis("Mouse Y") * mouseSensitivity;
         transform.Rotate(0f, mx, 0f);
-        pitch -= my;
-        pitch = Mathf.Clamp(pitch, -89f, 89f);
-        cam.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        pitch = Mathf.Clamp(pitch - my, -89f, 89f);
+        if (cam) cam.localRotation = Quaternion.Euler(pitch, 0f, 0f);
 
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -37,17 +40,17 @@ public class FirstPersonController : MonoBehaviour
         if (cc.isGrounded)
         {
             if (Velocite < 0f) Velocite = -2f;
-            if (Input.GetButtonDown("Jump")) Velocite = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            if (Input.GetButtonDown("Jump"))
+                Velocite = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         Velocite += gravity * Time.deltaTime;
         Vector3 vel = new Vector3(move.x, 0f, move.z);
         cc.Move((vel + Vector3.up * Velocite) * Time.deltaTime);
 
-            
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Instantiate(fireballPrefab, cam.position + cam.forward * 0.5f, cam.rotation);
-            }
+        if (Input.GetButtonDown("Fire1") && cam)
+        {
+            Instantiate(fireballPrefab, cam.position + cam.forward * 0.5f, cam.rotation);
+        }
     }
 }

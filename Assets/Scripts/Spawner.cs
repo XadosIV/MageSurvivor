@@ -117,4 +117,5 @@ public class Spawner : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(Vector3.zero, new Vector3(areaSize.x, 0f, areaSize.y));
     }
+
 }
