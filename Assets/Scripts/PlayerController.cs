@@ -1,4 +1,8 @@
+using System;
+using System.Diagnostics;
 using UnityEngine;
+using Whisper;
+using Whisper.Utils;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -8,6 +12,11 @@ public class FirstPersonController : MonoBehaviour
     public float gravity = -9.81f;
     public Transform cam;
     public GameObject fireballPrefab;
+    public WhisperManager whisper;
+    public MicrophoneRecord microphoneRecord;
+
+
+    private string _buffer;
 
     CharacterController cc;
     Health health;
@@ -21,6 +30,7 @@ public class FirstPersonController : MonoBehaviour
         if (cam == null && Camera.main) cam = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        microphoneRecord.OnRecordStop += OnRecordStop;
     }
 
     void Update()
@@ -50,7 +60,42 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && cam)
         {
+            RecordStart();
+        }
+    }
+
+    private void RecordStart()
+    {
+        if (!microphoneRecord.IsRecording)
+        {
+            microphoneRecord.StartRecord();
+        }
+        else
+        {
+            microphoneRecord.StopRecord();
+        }
+    }
+
+    private async void OnRecordStop(AudioChunk recordedAudio)
+    {
+        _buffer = "";
+
+        var sw = new Stopwatch();
+        sw.Start();
+
+        var res = await whisper.GetTextAsync(recordedAudio.Data, recordedAudio.Frequency, recordedAudio.Channels);
+        if (res == null)
+            return;
+
+        var time = sw.ElapsedMilliseconds;
+        var rate = recordedAudio.Length / (time * 0.001f);
+
+        String text = res.Result;
+        text = text.ToUpperInvariant();
+        if (text.Contains("F"))
+        {
             Instantiate(fireballPrefab, cam.position + cam.forward * 0.5f, cam.rotation);
         }
+        print(text);
     }
 }

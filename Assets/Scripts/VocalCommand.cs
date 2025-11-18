@@ -14,28 +14,18 @@ public class VocalCommand : MonoBehaviour
     public Button button;
     public Text buttonText;
     public Text outputText;
-    public Text timeText;
-    public Toggle vadToggle;
 
     private string _buffer;
 
     private void Awake()
     {
         whisper.OnNewSegment += OnNewSegment;
-        whisper.OnProgress += OnProgressHandler;
 
         microphoneRecord.OnRecordStop += OnRecordStop;
 
         button.onClick.AddListener(OnButtonPressed);
-
-        vadToggle.isOn = microphoneRecord.vadStop;
-        vadToggle.onValueChanged.AddListener(OnVadChanged);
     }
 
-    private void OnVadChanged(bool vadStop)
-    {
-        microphoneRecord.vadStop = vadStop;
-    }
 
     private void OnButtonPressed()
     {
@@ -65,21 +55,12 @@ public class VocalCommand : MonoBehaviour
 
         var time = sw.ElapsedMilliseconds;
         var rate = recordedAudio.Length / (time * 0.001f);
-        timeText.text = $"Time: {time} ms\nRate: {rate:F1}x";
 
         var text = res.Result;
         if (printLanguage)
             text += $"\n\nLanguage: {res.Language}";
 
         print(text);
-    }
-
-
-    private void OnProgressHandler(int progress)
-    {
-        if (!timeText)
-            return;
-        timeText.text = $"Progress: {progress}%";
     }
 
     private void OnNewSegment(WhisperSegment segment)
