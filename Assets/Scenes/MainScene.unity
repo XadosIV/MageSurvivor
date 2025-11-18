@@ -790,8 +790,8 @@ MonoBehaviour:
   isModelPathInStreamingAssets: 1
   initOnAwake: 1
   useGpu: 0
-  flashAttention: 0
-  language: auto
+  flashAttention: 1
+  language: eng
   translateToEnglish: 0
   strategy: 0
   noContext: 1
@@ -1180,7 +1180,6 @@ MonoBehaviour:
   gravity: -10
   cam: {fileID: 1556149735}
   fireballPrefab: {fileID: 7752900382655144684, guid: 78a1729c22d4f814381bbb6c9e06b9be, type: 3}
-  capturingSounds: 0
   whisper: {fileID: 652153674}
   microphoneRecord: {fileID: 1222041494}
 --- !u!114 &1222041493
