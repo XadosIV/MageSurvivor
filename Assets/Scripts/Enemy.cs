@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     NavMeshAgent agent;
     Transform player;
-    PlayerHealth playerHealth;
+    Health playerHealth;
     float nextHit;
 
     void Awake()

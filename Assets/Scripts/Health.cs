@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -10,6 +10,13 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth = Mathf.Max(0, currentHealth - amount);
-        if (currentHealth == 0) Debug.Log("Player Dead");
+        if (currentHealth == 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
